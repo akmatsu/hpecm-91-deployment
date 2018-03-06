@@ -132,6 +132,10 @@ REM --------------------------------------------------
                 MsiExec /X{4C9BD660-4294-41D9-AFF9-C7FC0B67A53D} /passive /norestart
                 ECHO  Kapish Explorer x86 4.55.1556
                 MsiExec /X{4FB1E602-27A6-4147-B726-347EE80549CE} /passive /norestart
+                ECHO  Kapish Explorer x86 4.50.1536
+                MsiExec /X{536F96E6-BD50-4E28-8B26-5736B861E1C7} /passive /norestart
+                ECHO  Kapish Explorer x64 4.50.1536
+                MsiExec /X{47C367E3-A076-4C71-A17F-3704EC7C54F3} /passive /norestart
                 ECHO  Kapish Explorer x64 4.52.1546
                 MsiExec /X{39A78900-31AA-4B2F-8D9C-7CDDCB8F69D7} /passive /norestart
                 ECHO  Kapish Explorer x64 4.43.1354
