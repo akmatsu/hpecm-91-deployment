@@ -202,6 +202,9 @@ REM --------------------------------------------------
                 MSIEXEC /X{2C91BAED-FB84-4756-ABCF-A2F4AB4871A7} /passive /norestart
                 ECHO  Kapish TRIM Rename Addin 1.0.1
                 MSIEXEC /X{E2F709B4-3339-4CAB-895E-EEC88AC155B9} /passive /norestart
+                ECHO Kapish Rename Addin 1.1.1.3149
+                MSIEXEC /X{13CA1891-EB3D-4812-9794-DC0B3CC5CC06} /passive /norestart
+                MsiExec /X{185DC5E1-397A-4157-AC95-573D8C0D5A6D} /passive /norestart
 
                 ECHO  Container Part Creator 1.0.0
                 MSIEXEC /X{6EFF98F1-16C8-497A-A21F-BF56F13AE1AC} /passive /norestart
