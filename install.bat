@@ -258,14 +258,14 @@ REM --------------------------------------------------
                 ECHO 06. Install Kapish Record Remover-x86-1.60.1400
                 MsiExec.exe /I "Source\Kapish Record Remover-x86-1.60.1400.msi" /passive /norestart /log "%logpath%\06-Install-Kapish Record Remover-x86-1.40.1106.log"
 
-				ECHO 07. Install Kapish_Explorer_4.50.1536_x64
-				MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x64.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.40.1274_x64.log"
-
                 ECHO 07. Install Kapish_Explorer_4.50.1536_x86
                 MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x86.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.43.1354_x86.log"
 
-				ECHO 08. Install Kapish_Rename_Addin_x64_1.1.1.3149.msi
-				MsiExec.exe /I "Source\Kapish_Rename_Addin_x64_1.1.1.3149.msi" /passive /norestart /log "%logpath%\08-Install-Kapish_Rename_Addin_x64_1.1.1.3149.log"
+                ECHO 07. Install Kapish_Explorer_4.50.1536_x64
+                MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x64.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.40.1274_x64.log"
+
+		ECHO 08. Install Kapish_Rename_Addin_x64_1.1.1.3149.msi
+		MsiExec.exe /I "Source\Kapish_Rename_Addin_x64_1.1.1.3149.msi" /passive /norestart /log "%logpath%\08-Install-Kapish_Rename_Addin_x64_1.1.1.3149.log"
 
                 ECHO 08. Install Kapish_Rename_Addin_x86_1.1.1.3149.msi
                 MsiExec.exe /I "Source\Kapish_Rename_Addin_x86_1.1.1.3149.msi" /passive /norestart /log "%logpath%\08-Install-Kapish_Rename_Addin_x86_1.1.1.3149.log"
