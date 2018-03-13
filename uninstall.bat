@@ -119,6 +119,10 @@ REM --------------------------------------------------
                 MsiExec /X{926E096A-30BA-420F-A7D1-AC923B44F9DD} /passive /norestart
                 ECHO    HP Records Manager x86  8.20.7804
                 MsiExec /X{8EE56206-600D-425A-B30F-B0A601F2FB39} /passive /norestart
+                echo    HPE CM 9.10.914 x64
+                MsiExec /X{0DF491BC-9A33-4B8C-A79A-51A5E68793B1} /passive /norestart
+                echo    HPE CM 9.10.914 x86
+                MsiExec /X{E9B27679-F362-4518-8D2C-B27D5A57ACC1} /passive /norestart
 
 :UNINSTALL_KAPISH
                 ECHO -----------------------------------------------------------
