@@ -65,12 +65,6 @@ REM --------------------------------------------------
     SET LOGPATH=C:\TEMP\HPRM_LOG
     IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 
-    REM Apply VCRedist Fix
-    REG ADD "HKLM\SOFTWARE\Wow6432Node\Microsoft\DevDiv\VC\Servicing\8.0" /v "SP" /t REG_DWORD /d 1 /f
-
-    REM --- Cleanup Old Dataset Registry Settings ---
-    rem cscript "Source\Config\SetAllUserHKCUDatasetSettings.vbs"
-
     GOTO UNINSTALL_TRIMCONTEXT
 
 :UNINSTALL_TRIMCONTEXT
@@ -113,11 +107,11 @@ REM --------------------------------------------------
     MSIEXEC /X{C0A1CAE1-4BE0-4341-A91F-B12E158C6A9C} /passive /norestart
 
 
-    ECHO 07. Install Kapish_Explorer_4.50.1536_x86
-    MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x86.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.43.1354_x86.log"
-
     ECHO 07. Install Kapish_Explorer_4.50.1536_x64
     MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x64.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.40.1274_x64.log"
+
+    ECHO 07. Install Kapish_Explorer_4.50.1536_x86
+    MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x86.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.43.1354_x86.log"
 
 
 :FINISH_AND_EXIT
