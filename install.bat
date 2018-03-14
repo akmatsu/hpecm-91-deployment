@@ -212,11 +212,11 @@ REM --------------------------------------------------
                 ECHO  Kapish Tree Size Automation Server 1.0.0
                 MSIEXEC /X{97719B65-6EE7-4A35-8BB8-CCB1D16D3277} /passive /norestart
 
-				ECHO Unregister trimrenameaddin.dll
-				C:\Windows\Microsoft.net\framework64\v2.0.50727\regasm -u "C:\Program Files\Kapish\Rename Addin\TRIMRenameAddin.dll"
+		ECHO Unregister trimrenameaddin.dll
+		C:\Windows\Microsoft.net\framework64\v2.0.50727\regasm -u "C:\Program Files\Kapish\Rename Addin\TRIMRenameAddin.dll"
 
-				ECHO Kapish Rename Addin x64 1.1.0.1683
-				MsiExec.exe /X{82714193-A748-41D0-9F33-5D3C87EE2FC2} /passive /norestart
+		ECHO Kapish Rename Addin x64 1.1.0.1683
+		MsiExec.exe /X{82714193-A748-41D0-9F33-5D3C87EE2FC2} /passive /norestart
 
 
 :INSTALL_HPRM_64BITWORKSTATION
@@ -224,6 +224,9 @@ REM --------------------------------------------------
                 ECHO ----- Installing Components for 64bit and 32bit   -----
                 ECHO -------------------------------------------------------
                 ECHO.
+
+                ECHO 00. .NET Framework 3.5
+                DISM /Online /Enable-Feature /FeatureName:NetFx3
 
                 ECHO 01. Install vcredist_x64.exe
                 "Source\vcredist_x64.exe" /Q
