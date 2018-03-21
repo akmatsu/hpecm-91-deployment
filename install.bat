@@ -225,6 +225,9 @@ REM --------------------------------------------------
                 ECHO -------------------------------------------------------
                 ECHO.
 
+                REM Cleanup old Kapish Explorer Stuff
+                reg delete "HKCR\CLSID\{6EC97137-BE18-44B9-BB5B-92240A8D3481}" /f
+
                 ECHO 00. .NET Framework 3.5
                 DISM /Online /Enable-Feature /FeatureName:NetFx3
 
@@ -244,7 +247,7 @@ REM --------------------------------------------------
                 MsiExec.exe /I "Source\VS2013_Runtimes_x86.msi" /passive /norestart /log "%logpath%\03-Install-VS2013_Runtimes_x86.log"
 
                 ECHO 04. Install HP Records Manager v9.10.914 x64 Client Software
-				MsiExec.exe /I "Source\HPE_CM_x64.msi" /passive /norestart /l*vx "%logpath%\04-Install-HPRM91Client_x64.log" INSTALLDIR="C:\Program Files\Hewlett-Packard Enterprise\Content Manager\" ADDLOCAL="Client" ALLUSERS="1" AUTOGG="1" DEFAULTDB="C2" DEFAULTDBNAME="HPE CM Test" LANG="US" ODMA="None" ODMALOCAL="1" OUTLOOK_ON="1" PORTNO="1137" POWERPOINT_ON="1" PROJECT_ON="0" STARTMENU_NAME="HPE Content Manager" TRIM_DSK="1" TRIMREF="TRIM" PRIMARYURL="RMAPP02TST" WORD_ON="1" EXCEL_ON="1" TRIMUserSetup_On="1"
+		MsiExec.exe /I "Source\HPE_CM_x64.msi" /passive /norestart /l*vx "%logpath%\04-Install-HPRM91Client_x64.log" INSTALLDIR="C:\Program Files\Hewlett-Packard Enterprise\Content Manager\" ADDLOCAL="Client" ALLUSERS="1" AUTOGG="1" DEFAULTDB="C2" DEFAULTDBNAME="HPE CM Test" LANG="US" ODMA="None" ODMALOCAL="1" OUTLOOK_ON="1" PORTNO="1137" POWERPOINT_ON="1" PROJECT_ON="0" STARTMENU_NAME="HPE Content Manager" TRIM_DSK="1" TRIMREF="TRIM" PRIMARYURL="RMAPP02TST" WORD_ON="1" EXCEL_ON="1" TRIMUserSetup_On="1"
 
                 ECHO 04. Install HP Records Manager v9.10.914 x86 Client Software
                 MsiExec.exe /I "Source\HPE_CM_x86.msi" /passive /norestart /l*vx "%logpath%\04-Install-HPRM91Client_x86.log" INSTALLDIR="C:\Program Files (x86)\Hewlett-Packard Enterprise\Content Manager\" ADDLOCAL="Client" ALLUSERS="1" AUTOGG="1" DEFAULTDB="C2" DEFAULTDBNAME="HPE CM Test" LANG="US" ODMA="None" ODMALOCAL="1" OUTLOOK_ON="1" PORTNO="1137" POWERPOINT_ON="1" PROJECT_ON="0" STARTMENU_NAME="HPE Content Manager" TRIM_DSK="1" TRIMREF="TRIM" PRIMARYURL="RMAPP02TST" WORD_ON="1" EXCEL_ON="1" TRIMUserSetup_On="1"
@@ -262,10 +265,10 @@ REM --------------------------------------------------
                 MsiExec.exe /I "Source\Kapish Record Remover-x86-1.60.1400.msi" /passive /norestart /log "%logpath%\06-Install-Kapish Record Remover-x86-1.40.1106.log"
 
                 ECHO 07. Install Kapish_Explorer_4.50.1536_x86
-                MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x86.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.43.1354_x86.log"
+                MsiExec.exe /i "Source\Kapish_Explorer_4.50.1536_x86.msi" TRANSFORMS="Source\Kapish_Explorer_4.50.1536_x86.mst" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.50.1536_x86.log"
 
                 ECHO 07. Install Kapish_Explorer_4.50.1536_x64
-                MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x64.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.40.1274_x64.log"
+                MsiExec.exe /i "Source\Kapish_Explorer_4.50.1536_x64.msi" TRANSFORMS="Source\Kapish_Explorer_4.50.1536_x64.mst" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.50.1536_x64.log"
 
 		ECHO 08. Install Kapish_Rename_Addin_x64_1.1.1.3149.msi
 		MsiExec.exe /I "Source\Kapish_Rename_Addin_x64_1.1.1.3149.msi" /passive /norestart /log "%logpath%\08-Install-Kapish_Rename_Addin_x64_1.1.1.3149.log"

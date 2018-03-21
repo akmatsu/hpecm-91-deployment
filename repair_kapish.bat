@@ -107,15 +107,16 @@ REM --------------------------------------------------
     MSIEXEC /X{C0A1CAE1-4BE0-4341-A91F-B12E158C6A9C} /passive /norestart
 
 
+    reg delete "HKCR\CLSID\{6EC97137-BE18-44B9-BB5B-92240A8D3481}" /f
 
     ECHO 00. .NET Framework 3.5
     DISM /Online /Enable-Feature /FeatureName:NetFx3
 
-    ECHO 07. Install Kapish_Explorer_4.50.1536_x64
-    MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x64.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.40.1274_x64.log"
-
     ECHO 07. Install Kapish_Explorer_4.50.1536_x86
-    MsiExec.exe /I "Source\Kapish_Explorer_4.50.1536_x86.msi" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.43.1354_x86.log"
+    MsiExec.exe /i "Source\Kapish_Explorer_4.50.1536_x86.msi" TRANSFORMS="Source\Kapish_Explorer_4.50.1536_x86.mst" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.50.1536_x86.log"
+
+    ECHO 07. Install Kapish_Explorer_4.50.1536_x64
+    MsiExec.exe /i "Source\Kapish_Explorer_4.50.1536_x64.msi" TRANSFORMS="Source\Kapish_Explorer_4.50.1536_x64.mst" /passive /norestart /log "%logpath%\07-Install-Kapish_Explorer_4.50.1536_x64.log"
 
 
 :FINISH_AND_EXIT
