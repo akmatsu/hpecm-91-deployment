@@ -218,6 +218,12 @@ REM --------------------------------------------------
 		ECHO Kapish Rename Addin x64 1.1.0.1683
 		MsiExec.exe /X{82714193-A748-41D0-9F33-5D3C87EE2FC2} /passive /norestart
 
+                ECHO Runtimes
+                MsiExec.exe /X{D38E5627-C8B6-4204-BC83-0776266FFC6C} /passive /norestart
+                MsiExec.exe /X{AC789DFC-FBF6-49B1-A64C-EFF770809C53} /passive /norestart
+                MsiExec.exe /X{9D33A9C9-AEF0-45A9-A895-D20D772ECE4F} /passive /norestart
+                MsiExec.exe /X{BEBA8756-E029-4804-860E-648FE7B176A1} /passive /norestart
+
 
 :INSTALL_HPRM_64BITWORKSTATION
                 ECHO -------------------------------------------------------
@@ -226,25 +232,25 @@ REM --------------------------------------------------
                 ECHO.
 
                 REM Cleanup old Kapish Explorer Stuff
-                reg delete "HKCR\CLSID\{6EC97137-BE18-44B9-BB5B-92240A8D3481}" /f
+                reg delete "HKCR\CLSID\{6EC97137-BE18-44B9-BB5B-92240A8D3481}" /f >> "%logpath%\00-RegCleanup.txt"
 
                 ECHO 00. .NET Framework 3.5
-                DISM /Online /Enable-Feature /FeatureName:NetFx3
+                DISM /Online /Enable-Feature /FeatureName:NetFx3 >> "%logpath%\00-DotNet35.txt"
 
                 ECHO 01. Install vcredist_x64.exe
                 "Source\vcredist_x64.exe" /Q
 
                 ECHO 02. Install HP Records Manager VS2010_Runtimes_x64.msi
-                MsiExec.exe /I "Source\VS2010_Runtimes_x64.msi" /passive /norestart /log "%logpath%\02-Install-VS2010_Runtimes_x64.log"
+                REM MsiExec.exe /I "Source\VS2010_Runtimes_x64.msi" /passive /norestart /log "%logpath%\02-Install-VS2010_Runtimes_x64.log"
 
                 ECHO 02. Install HP Records Manager VS2010_Runtimes_x86.msi
-                MsiExec.exe /I "Source\VS2010_Runtimes_x86.msi" /passive /norestart /log "%logpath%\02-Install-VS2010_Runtimes_x86.log"
+                REM MsiExec.exe /I "Source\VS2010_Runtimes_x86.msi" /passive /norestart /log "%logpath%\02-Install-VS2010_Runtimes_x86.log"
 
                 ECHO 03. Install HP Records Manager VS2013_Runtimes_x64.msi
-                MsiExec.exe /I "Source\VS2013_Runtimes_x64.msi" /passive /norestart /log "%logpath%\03-Install-VS2013_Runtimes_x64.log"
+                REM MsiExec.exe /I "Source\VS2013_Runtimes_x64.msi" /passive /norestart /log "%logpath%\03-Install-VS2013_Runtimes_x64.log"
 
                 ECHO 03. Install HP Records Manager VS2013_Runtimes_x86.msi
-                MsiExec.exe /I "Source\VS2013_Runtimes_x86.msi" /passive /norestart /log "%logpath%\03-Install-VS2013_Runtimes_x86.log"
+                REM MsiExec.exe /I "Source\VS2013_Runtimes_x86.msi" /passive /norestart /log "%logpath%\03-Install-VS2013_Runtimes_x86.log"
 
                 ECHO 04. Install HP Records Manager v9.10.914 x64 Client Software
 		MsiExec.exe /I "Source\HPE_CM_x64.msi" /passive /norestart /l*vx "%logpath%\04-Install-HPRM91Client_x64.log" INSTALLDIR="C:\Program Files\Hewlett-Packard Enterprise\Content Manager\" ADDLOCAL="Client" ALLUSERS="1" AUTOGG="1" DEFAULTDB="C2" DEFAULTDBNAME="HPE CM Test" LANG="US" ODMA="None" ODMALOCAL="1" OUTLOOK_ON="1" PORTNO="1137" POWERPOINT_ON="1" PROJECT_ON="0" STARTMENU_NAME="HPE Content Manager" TRIM_DSK="1" TRIMREF="TRIM" PRIMARYURL="RMAPP02TST" WORD_ON="1" EXCEL_ON="1" TRIMUserSetup_On="1"
