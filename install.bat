@@ -291,19 +291,23 @@ REM --------------------------------------------------
                 ECHO ----- Applying Workstation Preferences            -----
                 ECHO -------------------------------------------------------
                 ECHO.
-				if not exist "C:\Program Files\Hewlett-Packard Enterprise\Content Manager\Backup" mkdir "C:\Program Files\Hewlett-Packard Enterprise\Content Manager\Backup"
+
+                if not exist "C:\Program Files\Hewlett-Packard Enterprise\Content Manager\Backup" mkdir "C:\Program Files\Hewlett-Packard Enterprise\Content Manager\Backup"
                 erase /Q "C:\Users\Public\Desktop\HPRM Desktop.lnk"
                 erase /Q "C:\Users\Public\Desktop\HPE CM Desktop.lnk"
                 erase /Q "C:\Users\Public\Desktop\HPRM Queue Processor.lnk"
                 erase /Q "C:\Users\Public\Desktop\HPE CM Queue Processor.lnk"
+                erase /Q "C:\Users\Public\Desktop\HPE Content Manager.lnk"
                 xcopy /Y "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\HP Records Manager\*.*" "C:\Program Files\Hewlett-Packard Enterprise\Content Manager\Backup"
                 erase /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\HP Records Manager\HP TRIM Desktop.lnk"
-				erase /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\HPE Content Manager\HPE Content Manager Desktop.lnk"
+                erase /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\HPE Content Manager\HPE Content Manager Desktop.lnk"
+		erase /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\HPE Content Manager\HPE Content Manager.lnk"
                 erase /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\HP Records Manager\HP TRIM Queue Processor.lnk"
                 erase /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\HPE Content Manager\HPE Content Manager Queue Processor.lnk"
 
                 REM ENSURE THE USER HAS THE RIGHT DESKTOP SHORTCUT
-                xcopy /Y "HPE Content Manager.lnk" "C:\Users\Public\Desktop\"
+                xcopy /Y "HPE Content Manager.lnk" "C:\Users\Public\Desktop\Trim.lnk"
+                xcopy /Y "HPE Content Manager.lnk" "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Trim.lnk"
 
                 setlocal enableextensions
                 for /F "tokens=2,*" %%a in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList" /v ProfileImagePath /s ^| find "REG_EXPAND_SZ" ^| findstr /v /i "\\windows\\ \\system32\\"') do (

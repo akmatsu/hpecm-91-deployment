@@ -72,9 +72,9 @@ REM --------------------------------------------------
                 ECHO -------------------------------------------------------
                 ECHO.
 
-                msiexec /p "Source\Patch\HPE_CM_x64.msp" /passive /norestart
+                msiexec /p "Source\Patch\HPE_CM_x64.msp" /norestart
 
-                msiexec /p "Source\Patch\HPE_CM_x86.msp" /passive /norestart
+                msiexec /p "Source\Patch\HPE_CM_x86.msp" /norestart
 
 
 :FINISH_AND_EXIT
