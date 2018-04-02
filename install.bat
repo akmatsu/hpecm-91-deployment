@@ -306,8 +306,8 @@ REM --------------------------------------------------
                 erase /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\HPE Content Manager\HPE Content Manager Queue Processor.lnk"
 
                 REM ENSURE THE USER HAS THE RIGHT DESKTOP SHORTCUT
-                xcopy /Y "HPE Content Manager.lnk" "C:\Users\Public\Desktop\Trim.lnk"
-                xcopy /Y "HPE Content Manager.lnk" "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Trim.lnk"
+                xcopy /i /Y "HPE Content Manager.lnk" "C:\Users\Public\Desktop\Trim.lnk"
+                xcopy /i /Y "HPE Content Manager.lnk" "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Trim.lnk"
 
                 setlocal enableextensions
                 for /F "tokens=2,*" %%a in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList" /v ProfileImagePath /s ^| find "REG_EXPAND_SZ" ^| findstr /v /i "\\windows\\ \\system32\\"') do (
